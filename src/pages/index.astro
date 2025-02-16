@@ -1,10 +1,8 @@
 ---
-import Badge from "../components/Badge.astro";
 import Experience from "../components/Experience.astro";
 import CodeIcon from "../components/icons/CodeIcon.astro";
 import Proyects from "../components/Proyects.astro";
 import Section from "../components/Section.astro";
-import SocialLink from "../components/SocialLink.astro";
 import Layout from "../layouts/Layout.astro";
 import TitleSection from "../components/TitleSection.astro";
 import ExperienceIcon from "../components/icons/ExperienceIcon.astro";
@@ -13,8 +11,8 @@ import Hero from "../components/Hero.astro";
 ---
 
 <Layout title="Portafolio de William Toro - Programador y desarrollador web">
-  <main>
-    <Section class="pt-40 pb-20">
+  <main class="mx-5 md:mx-0 flex flex-col gap-16">
+    <Section class="pt-5 md:pt-40 md:pb-14">
       <Hero />
     </Section>
 
@@ -31,7 +29,7 @@ import Hero from "../components/Hero.astro";
       </TitleSection>
       <Proyects />
     </Section>
-    <Section id="sobre-mi" class="mt-14">
+    <Section id="sobre-mi">
       <TitleSection>
         <CodeIcon /> Sobre mí
       </TitleSection>
