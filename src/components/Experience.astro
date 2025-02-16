@@ -1,0 +1,26 @@
+---
+import ExoerienceItem from "./ExoerienceItem.astro";
+
+const EXPERIENCE = [
+    {
+        date: "Octubre 2022 - Actualmente",
+        title: "Programador Junior",
+        description:
+            "Desarrollar aplicaciones utilizando tecnologías como HTML5, React y MUI para crear interfaces de usuario modernas e interactivas, creación de API REST en C# y .NET Core 6, manejo bases de datos como SQL Server e implementación de metodologías agiles como scrum y canva para construir aplicaciones sólidas y escalables.Automatizar informes en Excel y realizar conexiones para descarga de información de SAP.",
+        link: "",
+        location: "Indesap S.A.S",
+        active: true,
+    },
+    {
+        date: "Marzo 2021 - Junio 2022",
+        title: "Analista de programación",
+        description:
+            "Encargado de manejo de novedades de todo el personal operativo de la empresa. Adicionalmente realizaba actividades de análisis de datos y automatización de procesos relacionados con la programación de turnos mediante herramientas como Excel y VBA.",
+        location: "Seguridad Nacional Ltda",
+    },
+];
+---
+
+<ol class="relative border-s border-gray-200 dark:border-gray-700 ml-2">
+    {EXPERIENCE.map((experience) => <ExoerienceItem {...experience} />)}
+</ol>
