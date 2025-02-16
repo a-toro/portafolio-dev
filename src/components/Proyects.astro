@@ -1,0 +1,98 @@
+---
+import GithubIcon from "../components/icons/GithubIcon.astro";
+import LinkIcon from "../components/icons/LinkIcon.astro";
+import LinkButton from "./LinkButton.astro";
+import NetCoreIcon from "./icons/NetCoreIcon.astro";
+import ReactIcon from "./icons/ReactIcon.astro";
+import MaterialUIIcon from "./icons/MaterialUIIcon.astro";
+import SQLServerIcon from "./icons/SQLServerIcon.astro";
+
+const TYPE_PROJECT = {
+    private: "Privado",
+    public: "Público",
+};
+const PROJECTS = [
+    {
+        title: "Cotizador agrícola",
+        description:
+            "Aplicación web Fullstack, que permite realizar cotizaciones de fertilizantes agrícolas. Creado con Rect, Material UI, C#, .Net Core 6 y SQL Server.",
+        type: TYPE_PROJECT.private,
+        link: "https://github.com/a-toro/app_gastos",
+        github: "https://github.com/a-toro/app_gastos",
+        image: "/projects/project_1.webp",
+        tags: [
+            {
+                name: "ReactJS",
+                icon: ReactIcon,
+                class: "bg-gray-100 text-blue-500",
+            },
+            {
+                name: "Material UI",
+                icon: MaterialUIIcon,
+                class: "bg-gray-100 text-blue-700",
+            },
+            {
+                name: ".Net core 6",
+                icon: NetCoreIcon,
+                class: "bg-gray-100 text-[#623695]",
+            },
+            {
+                name: "SQL Server",
+                icon: SQLServerIcon,
+                class: "bg-gray-100 text-gray-400",
+            },
+        ],
+    },
+];
+---
+
+{
+    PROJECTS.map(({ title, description, tags, image, github, link, type }) => (
+        <article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0 mt-6">
+            <div class="w-full md:w-1/2">
+                <div class="overflow-clip rounded-xl">
+                    <img
+                        class="object-cover object-top w-full h-full transition duration-500 sm:h-full md:scale-110 md:group-hover:scale-105"
+                        loading="lazy"
+                        src={image}
+                        alt={`Captura de pantalla del proyecto ${image}`}
+                    />
+                </div>
+            </div>
+            <div class="w-full md:w-1/2 md:max-w-lg">
+                <h3 class="text-2xl font-bold text-gray-600 dark:text-gray-100">
+                    {title}
+                </h3>
+                <div class="flex flex-wrap mt-2">
+                    <ul class="flex flex-row mb-2 gap-x-2 flex-wrap gap-y-1">
+                        {tags.map((tag) => (
+                            <li>
+                                <span
+                                    class={`flex gap-x-1 rounded-full text-xs ${tag.class} py-1 px-2`}
+                                >
+                                    <tag.icon class="size-4" />
+                                    {tag.name}
+                                </span>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+                <div class="mt-1 text-gray-700 dark:text-gray-400">
+                    {description}
+                </div>
+                <footer class="flex items-end justify-start gap-x-4 mt-2">
+                    {type === TYPE_PROJECT.public && github && (
+                        <LinkButton href={github}>
+                            <GithubIcon /> Code
+                        </LinkButton>
+                    )}
+                    {type === TYPE_PROJECT.public && link && (
+                        <LinkButton href={link}>
+                            <LinkIcon /> Preview
+                        </LinkButton>
+                    )}
+                </footer>
+            </div>
+        </article>
+    ))
+}
